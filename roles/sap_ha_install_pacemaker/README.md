@@ -25,6 +25,7 @@ The necessary preparation is done in the role **sap_ha_prepare_pacemaker**.
 | --------------------------- | ----------------------------------------------- |
 | check_status.yml            | check cluster status                            |
 | cluster_setup.yml           | create a cluster without ressources             |
+| cluster_config.yml          | configure cluster                               |
 | stonith_sbd_node_config.yml | configure nodes for stonith via SBD             |
 | stonith_sbd_config.yml      | configure cluster for stonith via SBD           |
 | stonith_config.yml          | configure stonith devices (resource agents)     |
