@@ -38,6 +38,14 @@ argument_specs:
               - 192.168.1.10
               - 192.168.2.10
             node_name: nodeA
+            sbd_watchdog_modules:
+              - softdog
+            sbd_watchdog_modules_blocklist:
+              - iTCO_wdt
+            sbd_watchdog: /dev/watchdog1
+            sbd_devices:
+              - /dev/vdx
+              - /dev/vdy
 
         required: false
         type: dict
@@ -55,6 +63,13 @@ argument_specs:
         no_log: true
         required: true
         type: str
+
+      ha_cluster_sbd_enabled:
+        default: false
+        description:
+          - Defines whether to use SBD.
+        required: false
+        type: bool
 
       sap_ha_pacemaker_cluster_aws_region:
         description:

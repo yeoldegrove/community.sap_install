@@ -23,3 +23,10 @@
       ansible_distribution_version }}.yml
   vars:
     __sap_ha_pacemaker_cluster_vars_file: "{{ role_path }}/vars/{{ item }}"
+
+# Include vars needed for specific setups.
+- name: "SAP HA Prepare Pacemaker - Include setup specific variables"
+  block:
+    - name: SAP HA Prepare Pacemaker - Include SBD fencing variables
+      ansible.builtin.include_vars: "{{ role_path }}/vars/fence_sbd.yml"
+      when: ha_cluster_sbd_enabled

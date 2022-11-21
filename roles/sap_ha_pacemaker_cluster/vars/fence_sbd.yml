@@ -1,0 +1,10 @@
+---
+# Variables specific on to SBD fencing setups
+sap_ha_pacemaker_cluster_fence_agent_packages:
+  - fence-agents-sbd
+
+sap_ha_pacemaker_cluster_stonith_default:
+  agent: "stonith:fence_sbd"
+  options:
+    devices: "{{ ha_cluster.sbd_devices | join(',') }}"
+    pcmk_delay_max: 30
